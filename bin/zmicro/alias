@@ -1,0 +1,33 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro chatgpt-for-chatbot-feishu <args ...>"
+  echo ""
+
+  chatgpt-for-chatbot-feishu --help
+}
+
+version() {
+  chatgpt-for-chatbot-feishu --version
+}
+
+core() {
+  case $1 in
+  -h | --help | help)
+    help
+    ;;
+  -v | --version | version)
+    version
+    ;;
+  *)
+    chatgpt-for-chatbot-feishu "$@"
+    ;;
+  esac
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
